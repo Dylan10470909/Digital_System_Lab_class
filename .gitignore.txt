@@ -1,0 +1,36 @@
+# ====================================
+# VCS Simulation & Compilation Outputs
+# ====================================
+simv
+simv.daidir/
+csrc/
+*.o
+*.a
+*.so
+ucli.key
+
+# ====================================
+# Verdi / nWave Waveforms & Logs
+# ====================================
+*.fsdb
+*.vcd
+*.vpd
+novas.rc
+novas.conf
+novas_dump.log
+nWaveLog/
+*.log
+
+# ====================================
+# Editor Backup & Temp Files
+# ====================================
+*~
+*.swp
+*.bak
+
+# ====================================
+# OS & Device Specific
+# ====================================
+.DS_Store
+Thumbs.db
+*.HEIC
