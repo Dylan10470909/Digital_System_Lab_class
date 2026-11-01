@@ -1,6 +1,6 @@
 # 數位系統與硬體描述語言實習 (Digital System & HDL Design Labs)
 
-> 本倉庫收錄國立高雄科技大學（NKUST）「數位系統實習」課程之完整 Verilog HDL 專案原始碼與實驗報告，涵蓋組合邏輯最佳化、資料路徑控制、有限狀態機（FSM）、算術邏輯單元（ALU）以及 Xilinx FPGA 硬體板端驗證。
+> 本倉庫收錄「數位系統實習」課程之 Verilog HDL 專案原始碼與實驗報告，涵蓋組合邏輯最佳化、資料路徑控制、有限狀態機（FSM）、算術邏輯單元（ALU）以及 Xilinx FPGA 硬體板端驗證。
 
 ---
 
@@ -8,11 +8,11 @@
 
 * **硬體描述語言**：Verilog HDL (IEEE 1364-2001)
 * **模擬驗證平台**：
-  * EDA Playground (Mentor QuestaSim / EPWave 波形分析)
+  * EDA Playground (EPWave 波形分析)
 * **FPGA 綜合與實現工具**：
-  * Xilinx ISE 14.1 (Project Navigator / XST Synthesis / Map / PAR)
+  * Xilinx ISE 14.1 
 * **目標硬體開發板**：
-  * Xilinx Spartan-3AN FPGA Starter Kit (`xc3s200an-5ftg256`)
+  * Xilinx FPGA
 
 ---
 
@@ -22,14 +22,15 @@
 
 | 單元 (Lab) | 實驗主題 (Topic) | 核心電路設計與功能描述 | 驗證方式 |
 | :--- | :--- | :--- | :--- |
-| **Lab4** | 組合邏輯電路設計 (Combinational Circuit) | 卡諾圖（K-Map）化簡布林代數、閘級與資料流建模 |EPWave |
-| **Lab5** | 多工器邏輯與硬體實現 (MUX & FPGA) | 16-to-1 MUX 布林映射、七段解碼與 Spartan-3AN 燒錄驗證 | EPWave / FPGA 板 |
-| **Lab6** | 4-bit 升降計數器 (Up-Down Counter) | 時序邏輯、非同步重置（Async Reset）與計數除頻邏輯 | EPWave |
-| **Lab7** | 雙向跑馬燈 (Bidirectional Shift Register) | 8-bit 雙向移位暫存器與有限循環計數狀態控制 | EPWave |
-| **Lab8** | 七段顯示器動態掃描 (7-Segment Controller) | 模組化階層整合（Top / LED / Hextoseg）與大計數除頻延遲 | EPWave / FPGA 板 |
-| **Lab9** | 有限狀態機設計 (FSM: Traffic Light) | 三段式狀態機紅黃綠燈時序控制、狀態編碼與條件跳轉 | EPWave |
-| **Lab10** | 4-bit 算術單元 (Function-based ALU) | 使用 Verilog `function signed [1:0]` 建立全加器與全減器 | 功能性波形驗證 |
-| **Lab11** | 循序邏輯與進階控制實作 | 進階暫存器傳輸級（RTL）控制與資料路徑整合 |  EPWave |
-| **Lab12** | 數位系統綜合實作專題 | 整合前述模組之端到端數位控制系統驗證 |  FPGA 驗證 |
+| **Lab4** | Combinational Circuit using HDL | 依身分證號碼列出真值表，經卡諾圖化簡布林代數後，設計組合邏輯閘電路 | EDA Playground (EPWave 波形驗證) |
+| **Lab5** | MUX using HDL | 應用多工器原理設計組合邏輯電路，以 `case` 語法依輸入訊號映射輸出結果 | EDA Playground 模擬與 Xilinx Spartan-3AN FPGA 板端驗證 |
+| **Lab5-1** | Code Converter using HDL | 設計七段顯示器解碼器（4 bits 輸入轉 7 bits 輸出），以 `case` 語法實現字形編碼轉換 | EDA Playground (EPWave 波形驗證) |
+| **Lab6** | Counter using HDL | 4-bit 升降計數器設計，含重置控制與利用計數器最低位元實現之除頻輸出（`counterdiv`） | EDA Playground (EPWave 波形驗證) |
+| **Lab7** | LED shift using HDL | 8-bit LED 跑馬燈電路，依據學號條件控制循環左移與右移之次數與切換 | EDA Playground (EPWave 波形驗證) |
+| **Lab8** | Seven Segment using Verilog | 階層化模組設計（`led` 除頻計數器與 `hextoseg` 解碼器），控制實體七段顯示器自動跳轉計數 | Xilinx ISE 14.1 綜合分析與 FPGA 板端實體顯示 |
+| **Lab9** | Finite State Machine using Verilog | 交通號誌有限狀態機設計，依輸入控制訊號 $X_1X_2$ 進行紅、黃、綠燈之狀態跳轉 | EDA Playground (EPWave 波形驗證) |
+| **Lab10** | Function (full_add / full_sub) | 撰寫 Verilog `function` 設計 4-bit 全加器與全減器模組 | EDA Playground 波形驗證（檢查進位 COUT 與借位 CIN） |
+| **Lab11** | 進階循序電路實作 | 撰寫循序邏輯硬體描述語言與對應 Testbench | EDA 工具模擬驗證 |
+| **Lab12** | 數位系統綜合實作 | 整合組合與循序邏輯之硬體電路設計 | 模擬與硬體驗證 |
 
 ---
