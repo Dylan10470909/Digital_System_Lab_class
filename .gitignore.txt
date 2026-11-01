@@ -1,36 +1,11 @@
-# ====================================
-# VCS Simulation & Compilation Outputs
-# ====================================
-simv
-simv.daidir/
-csrc/
-*.o
-*.a
-*.so
-ucli.key
+# 1. 先忽略所有檔案與副檔名
+*.*
 
-# ====================================
-# Verdi / nWave Waveforms & Logs
-# ====================================
-*.fsdb
-*.vcd
-*.vpd
-novas.rc
-novas.conf
-novas_dump.log
-nWaveLog/
-*.log
+# 2. 允許 Git 遍歷所有資料夾層級（關鍵，否則子資料夾會被直接跳過）
+!*/
 
-# ====================================
-# Editor Backup & Temp Files
-# ====================================
-*~
-*.swp
-*.bak
-
-# ====================================
-# OS & Device Specific
-# ====================================
-.DS_Store
-Thumbs.db
-*.HEIC
+# 3. 白名單：只保留 .v、.pdf 與說明文件
+!*.v
+!*.pdf
+!*.md
+!.gitignore
