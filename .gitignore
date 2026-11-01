@@ -1,0 +1,13 @@
+cat << 'EOF' > .gitignore
+# 忽略所有檔案
+*.*
+
+# 允許 Git 搜尋所有子目錄
+!*/
+
+# 白名單：只保留 .v 與 .pdf，其餘一律排除
+!*.v
+!*.pdf
+!*.md
+!.gitignore
+EOF
